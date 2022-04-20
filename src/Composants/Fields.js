@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 function Fields (props) {
   return (
@@ -7,9 +8,13 @@ function Fields (props) {
             <input 
             type={props.type} 
             name={props.name} 
-            className="form-control" 
+            className={classnames('form-control',
+            {'is-invalid':props.erreur})}
             defaultValue={props.value}
             onChange={props.changeFunc} />
+            <div className='invalid-feedback'>
+              {props.erreur}
+            </div>
         </div>
     
   )
